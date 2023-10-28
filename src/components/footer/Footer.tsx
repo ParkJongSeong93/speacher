@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="bg-mainnav-gray py-6 px-5">
@@ -5,26 +7,26 @@ const Footer = () => {
         <div>Logo</div>
         <div className="flex flex-col">
           <p>Product</p>
-          <a href="/">Help</a>
-          <a href="/">Change log*</a>
-          <a href="/">Templates</a>
-          <a href="/">Inspiration</a>
-          <a href="/">Contact us</a>
+          <Link href="/">Help</Link>
+          <Link href="/">Change log*</Link>
+          <Link href="/">Templates</Link>
+          <Link href="/">Inspiration</Link>
+          <Link href="/">Contact us</Link>
         </div>
         <div className="flex flex-col">
           <p>Company</p>
-          <a href="/">Team*</a>
-          <a href="/">Team of Service</a>
-          <a href="/">Privacy Policy</a>
+          <Link href="/">Team*</Link>
+          <Link href="/">Team of Service</Link>
+          <Link href="/">Privacy Policy</Link>
           <p>Language</p>
-          <a href="/">English</a>
+          <Link href="/">English</Link>
         </div>
         <div className="flex flex-col">
           <p>Follow us</p>
-          <a href="/">Twitter</a>
-          <a href="/">Instagram</a>
-          <a href="/">Linkedin</a>
-          <a href="/">TikTok</a>
+          <Link href="/">Twitter</Link>
+          <Link href="/">Instagram</Link>
+          <Link href="/">Linkedin</Link>
+          <Link href="/">TikTok</Link>
         </div>
       </div>
       <p>Speachers. Inc 2023</p>
