@@ -1,6 +1,6 @@
 const Mainnav = () => {
   return (
-    <nav className="bg-gray-300 w-full flex py-6 px-5 justify-between">
+    <nav className="bg-mainnav-gray w-full flex py-6 px-5 justify-between">
       <div>Logo</div>
       <div className="flex space-x-5">
         <a href="/">Pricing</a>

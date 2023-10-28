@@ -4,7 +4,7 @@ import Joinbutton from "./Joinbutton";
 const Mainbody = () => {
   return (
     <div>
-      <div className="flex w-full">
+      <div className="flex w-full bg-mainbackground-gray">
         <div className="w-5/12 flex-col">
           <p>#1. AI. FEEDBACK SERVICE</p>
           <h1>
