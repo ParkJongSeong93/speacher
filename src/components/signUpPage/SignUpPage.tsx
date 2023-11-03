@@ -64,4 +64,4 @@ function SignUpPage() {
 export default SignUpPage;
 
 
-//asdfsadfsf
+// Compare this snippet from src/components/mainnav/Mainnav.tsx:
