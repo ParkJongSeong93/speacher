@@ -1,13 +1,12 @@
-import Footer from "../components/footer/Footer";
-import Mainbody from "../components/mainbody/Mainbody";
-import Mainnav from "../components/mainnav/Mainnav";
+import LogInPage from "@/components/logInPage/LogInPage";
+import UploadPage from "@/components/uploadPage/UploadPage";
+import Mainnav from "@/components/mainnav/Mainnav";
+import MainPage from "@/components/landingPage/MainPage";
 
 export default function Home() {
   return (
     <main className="w-full">
-      <Mainnav />
-      <Mainbody />
-      <Footer />
+      <MainPage />
     </main>
   );
 }
