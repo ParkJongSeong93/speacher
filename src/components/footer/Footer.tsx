@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="bg-mainnav-gray py-6 px-5">
-      <div className="flex justify-between">
+    <footer className="bg-footer-gray pt-36 px-5">
+      <div className="flex justify-evenly">
         <div>Logo</div>
         <div className="flex flex-col">
           <p>Product</p>
@@ -29,9 +29,9 @@ const Footer = () => {
           <Link href="/">TikTok</Link>
         </div>
       </div>
-      <p>Speachers. Inc 2023</p>
+      <p className="w-full text-center py-24">Speachers. Inc 2023</p>
     </footer>
   );
-};
+}
 
 export default Footer;
