@@ -66,4 +66,4 @@ export default SignUpPage;
 
 // Compare this snippet from src/components/mainnav/Mainnav.tsx:
 
-//ㅁㄴㅇ
+
