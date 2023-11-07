@@ -1,6 +1,10 @@
 "use client";
 
+import {useRouter} from "next/navigation";
+
 function Page() {
+  const router = useRouter();
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
@@ -23,7 +27,7 @@ function Page() {
       throw Error("가입에 실패했습니다.");
     }
     const data = await response.json();
-    console.log(data);
+    router.push("/login");
     return data;
   };
 
