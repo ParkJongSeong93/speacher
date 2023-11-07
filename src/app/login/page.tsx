@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function Page() {
+  const router = useRouter();
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
@@ -24,6 +27,7 @@ function Page() {
       throw Error("로그인에 실패했습니다.");
     }
     const data = await response.json();
+    router.push("/upload");
     return data;
   };
 
