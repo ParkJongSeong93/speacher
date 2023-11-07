@@ -25,7 +25,7 @@ function Page() {
     });
 
     if (!response.ok) {
-      throw Error("로그인에 실패했습니다.");
+      alert("로그인에 실패했습니다.");
     }
     useAuthStore.setState({ isLogIn: true });
     router.push("/upload");

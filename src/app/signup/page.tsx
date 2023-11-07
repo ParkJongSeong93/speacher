@@ -24,7 +24,7 @@ function Page() {
     });
 
     if (!response.ok) {
-      throw Error("가입에 실패했습니다.");
+      alert("가입에 실패했습니다.");
     }
     router.push("/login");
   };
