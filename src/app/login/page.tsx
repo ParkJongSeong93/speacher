@@ -6,7 +6,6 @@ import useIsLogIn from "@/components/stores/useIsLogIn";
 
 function Page() {
   const router = useRouter();
-  const isLogIn = useIsLogIn((state) => state.isLogIn);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,10 +27,8 @@ function Page() {
     if (!response.ok) {
       throw Error("로그인에 실패했습니다.");
     }
-    const data = await response.json();
     useIsLogIn.setState({ isLogIn: true });
     router.push("/upload");
-    return data;
   };
 
   return (
