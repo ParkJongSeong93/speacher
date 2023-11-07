@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import useIsLogIn from "@/components/stores/useIsLogIn";
+import useAuthStore from "@/stores/useAuthStore";
 
 function Page() {
   const router = useRouter();
@@ -27,7 +27,7 @@ function Page() {
     if (!response.ok) {
       throw Error("로그인에 실패했습니다.");
     }
-    useIsLogIn.setState({ isLogIn: true });
+    useAuthStore.setState({ isLogIn: true });
     router.push("/upload");
   };
 
