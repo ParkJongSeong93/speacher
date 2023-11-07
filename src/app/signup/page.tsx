@@ -26,9 +26,7 @@ function Page() {
     if (!response.ok) {
       throw Error("가입에 실패했습니다.");
     }
-    const data = await response.json();
     router.push("/login");
-    return data;
   };
 
   return (
