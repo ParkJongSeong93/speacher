@@ -2,13 +2,27 @@
 
 import Link from "next/link";
 import useIsLogIn from "@/components/stores/useIsLogIn";
+import React from "react";
+import { useRouter } from "next/navigation";
 
 function Mainnav() {
+  const router = useRouter();
   const isLogIn = useIsLogIn((state) => state.isLogIn);
 
-  const onClick = () => {
+  const onClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const url = `http://localhost:8080/`;
+    const response = await fetch(url + `api/members/logout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", credentials: "include" },
+    });
+    if (!response.ok) {
+      throw Error("로그아웃에 실패했습니다.");
+    }
+
     useIsLogIn.setState({ isLogIn: false });
-  }
+    router.push("/");
+  };
 
   return (
     <nav className="bg-mainNav-gray w-full flex py-6 px-5 justify-between">
@@ -17,7 +31,7 @@ function Mainnav() {
         <Link href="/">Pricing</Link>
         <Link href="/">Templates</Link>
         {isLogIn ? (
-          <Link onClick={onClick} href="/">Log out</Link>
+          <button onClick={onClick}>Log out</button>
         ) : (
           <>
             <Link href="/login">Login</Link>
