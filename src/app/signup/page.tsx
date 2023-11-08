@@ -25,6 +25,7 @@ function Page() {
 
     if (!response.ok) {
       alert("가입에 실패했습니다.");
+      return;
     }
     router.push("/login");
   };

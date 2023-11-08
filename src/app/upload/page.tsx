@@ -8,21 +8,17 @@ function Page() {
     e.preventDefault();
     const currentTarget = e.currentTarget;
     const formData = new FormData(currentTarget);
-    const videoInfo = {
-      video: formData.get("video") as string,
-      title: formData.get("title") as string,
-    };
 
     const url = `http://localhost:8080/`;
 
     const response = await fetch(url + `api/videos`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(videoInfo),
+      body: formData,
     });
 
     if (!response.ok) {
       alert("업로드에 실패했습니다.");
+      return;
     }
     alert("업로드에 성공했습니다.");
   };
@@ -65,7 +61,7 @@ function Page() {
                 className="bg-uploadBg-gray w-full py-2 pl-1.5 mb-3.5 focus:outline-black"
               />
               <input
-                name="video"
+                name="extension"
                 type="file"
                 accept="video/*"
                 multiple={false}
