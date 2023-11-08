@@ -4,6 +4,7 @@ import Mainnav from "@/components/common/Mainnav";
 import Footer from "@/components/common/Footer";
 import { useEffect, useState } from "react";
 import { Video } from "@/types/video";
+import Link from "next/link";
 
 function Page() {
   const [videoList, setVideoList] = useState<Video[]>([
@@ -58,9 +59,9 @@ function Page() {
               Upload New Video
             </div>
             {videoList.map((video) => (
-              <div className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray text-gray-400">
+              <Link href={`/feedback/${video.id}`} className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray text-gray-400">
                 {video.title}
-              </div>
+              </Link>
             ))}
             <div className="py-4 pl-3 mt-4 bg-uploadPageBtn-lightgray">
               Option
