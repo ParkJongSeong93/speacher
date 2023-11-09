@@ -2,8 +2,33 @@
 
 import Mainnav from "@/components/common/Mainnav";
 import Footer from "@/components/common/Footer";
+import { useEffect, useState } from "react";
+import { Video } from "@/types/video";
 
 function Page() {
+  const [videoList, setVideoList] = useState<Video[]>([
+    {
+      id: 1,
+      title: "Test Video",
+      videoUrl: "https://www.youtube.com",
+    },
+    {
+      id: 2,
+      title: "Test Video 2",
+      videoUrl: "https://www.youtube.com",
+    },
+  ]);
+
+  useEffect(() => {
+    const getVideoList = async () => {
+      const url = `http://localhost:8080/`;
+      const response = await fetch(url + `api/videos`);
+      const data = await response.json();
+      setVideoList(data);
+    };
+    getVideoList();
+  }, []);
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
@@ -29,20 +54,15 @@ function Page() {
         <Mainnav />
         <div className="flex w-full flex-1">
           <div className="bg-uploadBg-gray flex flex-col justify-center w-1/4">
-            <div className="py-4 pl-3 mb-6 bg-uploadPageBtn-gray">Upload</div>
             <div className="py-4 pl-3 mb-10 bg-uploadPageBtn-gray">
-              + New Video
+              Upload New Video
             </div>
-            <div className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray text-gray-400">
-              - list
-            </div>
-            <div className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray text-gray-400">
-              - list
-            </div>
-            <div className="py-4 pl-3 mb-14 bg-uploadPageBtn-lightgray text-gray-400">
-              - list
-            </div>
-            <div className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray">
+            {videoList.map((video) => (
+              <div className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray text-gray-400">
+                {video.title}
+              </div>
+            ))}
+            <div className="py-4 pl-3 mt-4 bg-uploadPageBtn-lightgray">
               Option
             </div>
           </div>
@@ -67,10 +87,7 @@ function Page() {
                 multiple={false}
                 className="bg-uploadBg-gray w-full py-2 pl-1.5 mb-3.5"
               />
-              <button
-                type="submit"
-                className="bg-black py-2 px-1.5 text-white"
-              >
+              <button type="submit" className="bg-black py-2 px-1.5 text-white">
                 Submit Video
               </button>
             </form>
