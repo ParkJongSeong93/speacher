@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import useIsLogIn from "@/components/stores/useIsLogIn";
+import useAuthStore from "@/stores/useAuthStore";
 import React from "react";
 import { useRouter } from "next/navigation";
 
 function Mainnav() {
   const router = useRouter();
-  const isLogIn = useIsLogIn((state) => state.isLogIn);
+  const isLogIn = useAuthStore((state) => state.isLogIn);
 
   const onClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ function Mainnav() {
       throw Error("로그아웃에 실패했습니다.");
     }
 
-    useIsLogIn.setState({ isLogIn: false });
+    useAuthStore.setState({ isLogIn: false });
     router.push("/");
   };
 

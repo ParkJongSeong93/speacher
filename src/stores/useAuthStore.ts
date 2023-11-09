@@ -8,11 +8,11 @@ type logInAction = {
   updateIsLogIn: (isLogIn: boolean) => void;
 };
 
-const useIsLogIn = create<logInState & logInAction>((set, get) => ({
+const useAuthStore = create<logInState & logInAction>((set, get) => ({
   isLogIn: false,
   updateIsLogIn: (isLogIn) => {
     set({ isLogIn: isLogIn });
   },
 }));
 
-export default useIsLogIn;
+export default useAuthStore;
