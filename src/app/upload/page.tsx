@@ -22,7 +22,7 @@ function Page() {
     });
 
     if (!response.ok) {
-      throw Error("업로드에 실패했습니다.");
+      alert("업로드에 실패했습니다.");
     }
     alert("업로드에 성공했습니다.");
   };
