@@ -18,6 +18,7 @@ function Mainnav() {
     });
     if (!response.ok) {
       alert("로그아웃에 실패했습니다.");
+      return;
     }
 
     useAuthStore.setState({ isLogIn: false });
