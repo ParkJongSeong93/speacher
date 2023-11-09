@@ -5,31 +5,9 @@ import Footer from "@/components/common/Footer";
 import { useEffect, useState } from "react";
 import { Video } from "@/types/video";
 import Link from "next/link";
+import Sidebar from "@/components/feedback/Sidebar";
 
 function Page() {
-  const [videoList, setVideoList] = useState<Video[]>([
-    {
-      id: 1,
-      title: "Test Video",
-      videoUrl: "https://www.youtube.com",
-    },
-    {
-      id: 2,
-      title: "Test Video 2",
-      videoUrl: "https://www.youtube.com",
-    },
-  ]);
-
-  useEffect(() => {
-    const getVideoList = async () => {
-      const url = `http://localhost:8080/`;
-      const response = await fetch(url + `api/videos`);
-      const data = await response.json();
-      setVideoList(data);
-    };
-    getVideoList();
-  }, []);
-
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
@@ -54,19 +32,7 @@ function Page() {
       <div className="w-full h-screen flex flex-col">
         <Mainnav />
         <div className="flex w-full flex-1">
-          <div className="bg-uploadBg-gray flex flex-col justify-center w-1/4">
-            <div className="py-4 pl-3 mb-10 bg-uploadPageBtn-gray">
-              Upload New Video
-            </div>
-            {videoList.map((video) => (
-              <Link href={`/feedback/${video.id}`} className="py-4 pl-3 mb-6 bg-uploadPageBtn-lightgray text-gray-400">
-                {video.title}
-              </Link>
-            ))}
-            <div className="py-4 pl-3 mt-4 bg-uploadPageBtn-lightgray">
-              Option
-            </div>
-          </div>
+          <Sidebar />
           <div className="flex-1 flex flex-col justify-center items-center h-full">
             <div className="w-2/3 font-bold text-4xl pr-40 mb-7">
               <div className="bg-uploadPageBtn-gray w-12 h-12 mr-4 rounded-full inline-flex justify-center items-center font-light text-5xl">
@@ -94,7 +60,6 @@ function Page() {
             </form>
           </div>
         </div>
-        <div className="w-full"></div>
       </div>
       <Footer />
     </>
