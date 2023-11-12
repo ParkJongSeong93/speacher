@@ -43,7 +43,7 @@ export default function Home() {
             <br /> presentation
           </p>
           <div className="w-4/6">
-            <button className="bg-mainNav-gray px-4 py-3">Give it a try</button>
+            <button className="bg-mainNav-purple text-white font-bold px-6 py-3">Give it a try</button>
           </div>
         </div>
       </div>

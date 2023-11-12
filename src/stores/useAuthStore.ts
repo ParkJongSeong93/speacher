@@ -12,6 +12,8 @@ const useAuthStore = create<logInState & logInAction>((set, get) => ({
   isLogIn: false,
   updateIsLogIn: (isLogIn) => {
     set({ isLogIn: isLogIn });
+    // need to consider flux pattern
+    //think about bank example
   },
 }));
 
