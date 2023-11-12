@@ -36,7 +36,7 @@ function Page({ params }: Props) {
         <div className="flex w-full flex-1">
           <Sidebar />
           <div className="flex-1 flex flex-col justify-center items-center">
-            <div className="flex w-5/6 h-1/3">
+            <div className="flex w-2/3 h-1/3">
               <div className="flex flex-col w-2/5 mr-2.5">
                 <p className="font-bold text-2xl mb-2">Test video {params.id}</p>
                 <iframe
@@ -52,17 +52,6 @@ function Page({ params }: Props) {
                 <div className="w-full h-1 bg-gray-300"></div>
                 <div className="w-full h-full my-2 p-1 bg-gray-100 font-light text-xl">test {params.id}</div>
                 <div className="w-full h-1 bg-gray-300"></div>
-              </div>
-            </div>
-            <div className="flex-col w-5/6 mt-16">
-              <div className="w-full py-3 mb-3 bg-gray-200 text-center">
-                A
-              </div>
-              <div className="w-full py-3 mb-3 bg-gray-200 text-center">
-                B
-              </div>
-              <div className="w-full py-3 mb-3 bg-gray-200 text-center">
-                C
               </div>
             </div>
           </div>
