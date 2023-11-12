@@ -1,64 +1,28 @@
-"use client";
-
 import Mainnav from "@/components/common/Mainnav";
 import Footer from "@/components/common/Footer";
-import { useEffect, useState } from "react";
-import { Video } from "@/types/video";
 import Link from "next/link";
-import Sidebar from "@/components/feedback/Sidebar";
 
 function Page() {
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const currentTarget = e.currentTarget;
-    const formData = new FormData(currentTarget);
-
-    const url = `http://localhost:8080/`;
-
-    const response = await fetch(url + `api/videos`, {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) {
-      alert("업로드에 실패했습니다.");
-      return;
-    }
-    alert("업로드에 성공했습니다.");
-  };
-
   return (
     <>
       <div className="w-full h-screen flex flex-col">
         <Mainnav />
-        <div className="flex w-full flex-1">
-          <Sidebar />
-          <div className="flex-1 flex flex-col justify-center items-center h-full">
-            <div className="w-2/3 font-bold text-4xl pr-40 mb-7">
-              <div className="bg-uploadPageBtn-gray w-12 h-12 mr-4 rounded-full inline-flex justify-center items-center font-light text-5xl">
-                +
-              </div>
-              Upload your video
-            </div>
-            <form onSubmit={onSubmit} className="w-2/3">
-              <input
-                name="title"
-                type="text"
-                placeholder="Type Title"
-                className="bg-uploadBg-gray w-full py-2 pl-1.5 mb-3.5 focus:outline-black"
-              />
-              <input
-                name="extension"
-                type="file"
-                accept="video/*"
-                multiple={false}
-                className="bg-uploadBg-gray w-full py-2 pl-1.5 mb-3.5"
-              />
-              <button type="submit" className="bg-black py-2 px-1.5 text-white">
-                Submit Video
-              </button>
-            </form>
+        <div className="w-full h-full flex flex-col justify-center items-center">
+          <div className="flex justify-center items-center font-bold text-4xl mb-7">
+            <Link
+              href="/upload/file"
+              className="bg-mainNav-purple w-12 h-12 mr-4 rounded-full inline-flex justify-center items-center font-light text-5xl text-white"
+            >
+              +
+            </Link>
+            Upload your video
           </div>
+          <Link
+            href="/upload/file"
+            className="w-1/3 border-b-2 border-b-gray-300"
+          >
+            Or select a file
+          </Link>
         </div>
       </div>
       <Footer />
