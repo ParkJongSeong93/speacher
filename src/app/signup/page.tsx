@@ -2,6 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import fetchPostSignUp from "@/lib/helpers/fetchPostSignUp";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function Page() {
   const router = useRouter();
@@ -28,34 +31,25 @@ function Page() {
   return (
     <form
       onSubmit={onSubmit}
-      className="w-full h-screen flex flex-col justify-center items-center"
+      className="w-1/3 mx-auto h-screen gap-y-4 flex flex-col items-center justify-center"
     >
-      <p className="text-4xl font-bold mb-20">Sign Up</p>
-      <input
-        name="name"
-        type="text"
-        placeholder="Type Name"
-        className="text-center text-2xl py-2 rounded-md border-2 focus:outline-black w-4/12 mb-2"
-      />
-      <input
+      <h1 className="text-4xl font-bold my-8">Sign up</h1>
+      <Input name="name" placeholder="Type Id" className="h-16 text-center" />
+      <Input
         name="email"
         type="email"
         placeholder="Type Email"
-        className="text-center text-2xl py-2 rounded-md border-2 focus:outline-black w-4/12 mb-2"
+        className="h-16 text-center"
       />
-      <input
+      <Input
         name="password"
         type="password"
         placeholder="Type Password"
-        className="text-center text-2xl py-2 rounded-md border-2 focus:outline-black w-4/12 mb-2"
+        className="h-16 text-center"
       />
-      <button
-        type="submit"
-        className="text-center text-2xl py-2.5 rounded-md border-none focus:outline-black w-4/12 bg-logInPageBtn-gray"
-      >
-        Sign Up
-      </button>
-      {/*추후 합치기 가능*/}
+      <Button type="submit" className="w-full h-16">
+        Sign up
+      </Button>
     </form>
   );
 }

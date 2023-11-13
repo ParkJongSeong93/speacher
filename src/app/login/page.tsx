@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import fetchPostLogIn from "@/lib/helpers/fetchPostLogIn";
-import { useRouter } from "next/navigation";
 
 function Page() {
-  const router = useRouter();
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
@@ -17,11 +15,13 @@ function Page() {
     };
 
     try {
-      await fetchPostLogIn(userInfo);
-      alert("로그인 성공");
-      router.push("/upload");
+      fetchPostLogIn(userInfo);
     } catch (error) {
-      alert(error instanceof Error ? error.message : "알 수 없는 에러");
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("알 수 없는 에러");
+      }
     }
   };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import Mainnav from "@/components/common/Mainnav";
+import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import fetchPostVideo from "@/lib/helpers/fetchPostVideo";
 import { useRouter } from "next/navigation";
@@ -17,14 +17,18 @@ function Page() {
       alert("비디오 업로드에 성공했습니다");
       router.push("/");
     } catch (error) {
-      alert(error instanceof Error ? error.message : "알 수 없는 에러");
+      if (!(error instanceof Error)) {
+        alert("알 수 없는 에러");
+        return;
+      }
+      alert(error.message);
     }
   };
 
   return (
     <>
       <div className="w-full h-screen flex flex-col">
-        <Mainnav />
+        <Header />
         <div className="w-full h-full flex flex-col justify-center items-center">
           <div className="w-1/3 mb-7">
             <p className="font-bold text-2xl">Preview</p>
