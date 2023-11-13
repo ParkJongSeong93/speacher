@@ -2,10 +2,6 @@
 
 import Link from "next/link";
 import fetchPostLogIn from "@/lib/helpers/fetchPostLogIn";
-import { useRouter } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
 function Page() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

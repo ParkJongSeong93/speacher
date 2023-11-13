@@ -28,7 +28,7 @@ function Page() {
   return (
     <>
       <div className="w-full h-screen flex flex-col">
-        <Mainnav />
+        <Header />
         <div className="w-full h-full flex flex-col justify-center items-center">
           <div className="w-1/3 mb-7">
             <p className="font-bold text-2xl">Preview</p>
