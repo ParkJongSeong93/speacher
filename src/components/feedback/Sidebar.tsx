@@ -27,7 +27,7 @@ function Sidebar() {
   }, []);
 
   return (
-    <div className="bg-uploadBg-gray flex flex-col justify-center w-1/4">
+    <div className="bg-uploadBg-gray flex flex-col justify-center w-1/6">
       <Link href="/upload" className="py-4 pl-3 mb-10 bg-uploadPageBtn-gray">
         Upload New Video
       </Link>

@@ -7,16 +7,16 @@ function Footer() {
         <div className="flex-1 flex justify-center items-center">Logo</div>
         <div className="flex-1 flex justify-evenly">
           <div className="flex flex-col">
-            <p>Product</p>
+            <p className="font-bold text-xl mb-2">Product</p>
             <Link href="/">Upload</Link>
             <Link href="/">Feedback</Link>
           </div>
           <div className="flex flex-col">
-            <p>Company</p>
+            <p className="font-bold text-xl mb-2">Company</p>
             <Link href="/">About us</Link>
           </div>
           <div className="flex flex-col">
-            <p>Language</p>
+            <p className="font-bold text-xl mb-2">Language</p>
             <Link href="/">English</Link>
           </div>
         </div>

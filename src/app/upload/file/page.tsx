@@ -40,16 +40,26 @@ function Page() {
                 placeholder="Type Title"
                 className="bg-uploadBg-gray w-full py-2 pl-1.5 mr-4 focus:outline-black"
               />
-              <button type="submit" className="bg-mainNav-purple py-2 px-6 text-white">
+              <button
+                type="submit"
+                className="bg-mainNav-purple py-2 px-6 text-white"
+              >
                 Submit
               </button>
             </div>
+            <label
+              htmlFor="extension"
+              className="bg-uploadBg-gray w-full py-24 flex justify-center items-center cursor-pointer"
+            >
+              Select a file
+            </label>
             <input
+              id="extension"
               name="extension"
               type="file"
               accept="video/*"
               multiple={false}
-              className="bg-uploadBg-gray w-full py-2 pl-1.5 mb-3.5"
+              className="hidden"
             />
           </form>
         </div>
