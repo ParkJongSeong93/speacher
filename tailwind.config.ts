@@ -15,10 +15,10 @@ const config: Config = {
       },
       colors: {
         "uploadBg-gray": "#EFEFEF",
-        "mainNav-gray": "#E1DFDF",
+        "mainNav-purple": "#6056ED",
         "logInPageBtn-gray": "#D9D9D9",
         "uploadPageBtn-lightgray": "#D9D9D9",
-        "footer-gray": "#B1B1B2",
+        "footer-purple": "#7985ED",
         "uploadPageBtn-gray": "#B1B1B2",
       },
     },

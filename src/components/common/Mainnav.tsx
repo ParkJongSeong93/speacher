@@ -26,17 +26,34 @@ function Mainnav() {
   };
 
   return (
-    <nav className="bg-mainNav-gray w-full flex py-6 px-5 justify-between">
+    <nav className="bg-mainNav-purple w-full flex py-4 px-5 justify-around items-center text-white">
       <Link href="/">Logo</Link>
-      <div className="flex space-x-5">
-        <Link href="/">Pricing</Link>
-        <Link href="/">Templates</Link>
+      <div className="flex space-x-5 items-center">
+        <Link href="/" className="font-bold">
+          Feedback
+        </Link>
+        <Link href="/" className="pr-12">
+          About us
+        </Link>
         {isLogIn ? (
-          <button onClick={onClick}>Log out</button>
+          <>
+            <p>Guest 1</p>
+            <button
+              onClick={onClick}
+              className="text-mainNav-purple bg-white px-4 py-2"
+            >
+              Log out
+            </button>
+          </>
         ) : (
           <>
-            <Link href="/login">Login</Link>
-            <Link href="/signup">Sign up for free</Link>
+            <Link href="/login">Log in</Link>
+            <Link
+              href="/signup"
+              className="text-mainNav-purple bg-white px-4 py-2"
+            >
+              Join us
+            </Link>
           </>
         )}
       </div>
