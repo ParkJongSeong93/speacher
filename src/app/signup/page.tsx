@@ -17,13 +17,11 @@ function Page() {
     };
 
     try {
-      fetchPostSignUp(userInfo);
+      await fetchPostSignUp(userInfo);
+      alert("회원가입 성공");
+      router.push("/login");
     } catch (error) {
-      if (error instanceof Error) {
-        alert(error.message);
-      } else {
-        alert("알 수 없는 에러");
-      }
+      alert(error instanceof Error ? error.message : "알 수 없는 에러");
     }
   };
 

@@ -11,6 +11,5 @@ async function fetchLogOut() {
   }
 
   useAuthStore.setState({ isLogIn: false });
-  return;
 }
 export default fetchLogOut;
