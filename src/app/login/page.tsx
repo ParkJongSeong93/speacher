@@ -1,35 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import useAuthStore from "@/stores/useAuthStore";
+import fetchPostLogIn from "@/lib/helpers/fetchPostLogIn";
 
 function Page() {
-  const router = useRouter();
-
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
     const formData = new FormData(currentTarget);
     const userInfo = {
+      name: null,
       email: formData.get("email") as string,
       password: formData.get("password") as string,
     };
 
-    const url = `http://localhost:8080/`;
-
-    const response = await fetch(url + `api/members/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", credentials: "include" },
-      body: JSON.stringify(userInfo),
-    });
-
-    if (!response.ok) {
-      alert("로그인에 실패했습니다.");
-      return;
+    try {
+      fetchPostLogIn(userInfo);
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("알 수 없는 에러");
+      }
     }
-    useAuthStore.setState({ isLogIn: true });
-    router.push("/upload");
   };
 
   return (

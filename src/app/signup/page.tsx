@@ -1,6 +1,7 @@
 "use client";
 
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
+import fetchPostSignUp from "@/lib/helpers/fetchPostSignUp";
 
 function Page() {
   const router = useRouter();
@@ -15,19 +16,15 @@ function Page() {
       password: formData.get("password") as string,
     };
 
-    const url = `http://localhost:8080/`;
-
-    const response = await fetch(url + `api/members`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", credentials: "include" },
-      body: JSON.stringify(userInfo),
-    });
-
-    if (!response.ok) {
-      alert("가입에 실패했습니다.");
-      return;
+    try {
+      fetchPostSignUp(userInfo);
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("알 수 없는 에러");
+      }
     }
-    router.push("/login");
   };
 
   return (
