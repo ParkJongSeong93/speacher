@@ -13,13 +13,11 @@ function Mainnav() {
   const onClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      fetchPostLogOut();
+      await fetchPostLogOut();
+      alert("로그아웃 성공");
+      router.push("/");
     } catch (error) {
-      if (error instanceof Error) {
-        alert(error.message);
-      } else {
-        alert("알 수 없는 에러");
-      }
+      alert(error instanceof Error ? error.message : "알 수 없는 에러");
     }
   };
 

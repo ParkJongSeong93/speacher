@@ -13,14 +13,11 @@ function Page() {
     const formData = new FormData(currentTarget);
 
     try {
-      fetchPostVideo(formData);
+      await fetchPostVideo(formData);
+      alert("비디오 업로드에 성공했습니다");
       router.push("/");
     } catch (error) {
-      if (error instanceof Error) {
-        alert(error.message);
-      } else {
-        alert("알 수 없는 에러");
-      }
+      alert(error instanceof Error ? error.message : "알 수 없는 에러");
     }
   };
 

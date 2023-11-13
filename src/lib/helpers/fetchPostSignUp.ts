@@ -12,7 +12,6 @@ async function fetchPostSignUp(userInfo: UserInfo) {
   if (!response.ok) {
     throw Error("회원가입에 실패했습니다");
   }
-  return;
 }
 
 export default fetchPostSignUp;

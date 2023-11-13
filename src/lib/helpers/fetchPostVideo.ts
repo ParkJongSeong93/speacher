@@ -13,8 +13,5 @@ async function fetchPostVideo(formData:FormData){
     if (!response.ok) {
         throw Error('비디오 업로드에 실패했습니다');
     }
-
-    alert('비디오 업로드에 성공했습니다');
-    return;
 }
 export default fetchPostVideo;

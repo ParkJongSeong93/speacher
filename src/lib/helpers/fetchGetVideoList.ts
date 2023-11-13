@@ -13,6 +13,5 @@ async function fetchGetVideoList(){
 
     const data = await response.json();
     useVideoListStore.setState({videoList: data})
-    return;
 }
 export default fetchGetVideoList;

@@ -14,7 +14,5 @@ async function fetchPostLogIn(userInfo: UserInfo) {
   }
 
   useAuthStore.setState({ isLogIn: true });
-
-  return;
 }
 export default fetchPostLogIn;
