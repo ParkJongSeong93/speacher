@@ -1,53 +1,102 @@
-import Mainnav from "@/components/common/Mainnav";
-import UploadFileButton from "@/components/landing/UploadFileButton";
-import Footer from "@/components/common/Footer";
+import Image from "next/image";
+import MainMicrophone from "$/image/landing/mic.png";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import ThreeStep from "$/image/landing/three-step.png";
+import MainPlay from "$/image/landing/play.png";
 
 export default function Home() {
   return (
     <main className="w-full">
-      <div className="flex flex-col w-full h-screen">
-        <Mainnav />
-        <div className="flex w-full h-full">
-          <div className="flex flex-col flex-1 justify-center items-end ml-auto">
-            <p className="w-4/6 mb-14 text-xl">#1. AI FEEDBACK SERVICE</p>
-            <p className="w-4/6 font-bold text-3xl mb-14">
-              Get a quick feedback
-              <br />
-              about your
-              <br /> presentation
-            </p>
-            <UploadFileButton />
+      <section className="flex w-2/3 justify-between relative items-center mx-auto h-screen">
+        <div className="flex flex-col gap-y-12">
+          <h1 className="text-lg font-semibold text-mainNav-purple">
+            #1. AI FEEDBACK SERVICE
+          </h1>
+          <div className="text-5xl font-bold leading-tight">
+            <p>Get a quick</p>
+            <p>feedback about</p>
+            <p>your presentation</p>
           </div>
-          <div className="flex flex-col flex-1 justify-center items-center">
-            IMG
+          <Button asChild size="lg" className="px-14 py-6 w-fit text-lg">
+            <Link href="/upload">Upload File</Link>
+          </Button>
+        </div>
+        <Image
+          style={{
+            width: "40%",
+            height: "auto",
+          }}
+          src={MainMicrophone}
+          alt="마이크 이미지"
+        />
+      </section>
+      <section className="h-screen bg-uploadBg-gray flex items-center justify-center">
+        <div className="h-4/5 flex flex-col items-center container justify-between">
+          <h1 className="text-mainNav-purple font-bold text-2xl ">
+            #2. KEY FEATURE
+          </h1>
+          <div className="text-3xl font-bold text-center leading-normal">
+            <p>텍스트 전사부터 음성,모션 피드백까지</p>
+            <p>한번에 가능한 올인원 AI 발표 피드백 서비스</p>
           </div>
+          <article className="flex justify-evenly w-full">
+            {Array(3)
+              .fill(0)
+              .map((_, index) => (
+                <figure className="flex flex-col items-center justify-center gap-y-6">
+                  <div className="bg-gray-300 w-72 h-72" />
+                  <div className="bg-gray-300 w-72 h-10" />
+                  <div className="bg-gray-300 w-72 h-10" />
+                </figure>
+              ))}
+          </article>
         </div>
-      </div>
-      <div className="flex flex-col w-full h-screen bg-uploadBg-gray justify-center items-center">
-        <p className="my-10">USE CASES</p>
-        <p className="text-3xl font-bold">당신만의 발표 AI 피드백 서비스</p>
-        <div className="flex flex-1 w-full justify-center items-center">
-          <div className="bg-mainNav-gray w-4/12 h-4/6"></div>
-        </div>
-      </div>
-      <div className="flex w-full h-screen">
-        <div className="flex flex-col flex-1 justify-center items-center">
-          IMG
-        </div>
-        <div className="flex flex-col flex-1 justify-center items-start ml-auto">
-          <p className="w-4/6 mb-14 text-xl">HOW TO GET A FEED BACK</p>
-          <p className="w-4/6 font-bold text-3xl mb-14">
-            Get a quick feedback
-            <br />
-            about your
-            <br /> presentation
+      </section>
+      <section className="h-screen flex items-center justify-center">
+        <div className="h-4/5 flex flex-col items-center container justify-between">
+          <h1 className="text-mainNav-purple font-bold text-2xl ">
+            #3. HOW TO USE
+          </h1>
+          <p className="text-3xl font-bold text-center leading-normal">
+            위의 모든 기능을 손쉬운 단 3단계의 과정으로!
           </p>
-          <div className="w-4/6">
-            <button className="bg-mainNav-purple text-white font-bold px-6 py-3">Give it a try</button>
+          <article className="flex justify-evenly w-full">
+            <Image
+              src={ThreeStep}
+              style={{
+                width: "70%",
+              }}
+              alt="서비스 설명"
+            />
+          </article>
+        </div>
+      </section>
+      <section className="flex  relative bg-uploadBg-gray  h-screen">
+        <div className="flex w-2/3 items-center mx-auto justify-between">
+          <Image
+            style={{
+              width: "40%",
+              height: "auto",
+              right: "0%",
+            }}
+            src={MainPlay}
+            alt="플레이 아이콘"
+          />
+          <div className="flex flex-col gap-y-12">
+            <h1 className="text-lg font-semibold text-mainNav-purple">
+              #4. YOU ARE READY!
+            </h1>
+            <div className="text-5xl font-bold leading-tight">
+              <p>Why don’t you</p>
+              <p>try now?</p>
+            </div>
+            <Button asChild size="lg" className="px-14 py-6 w-fit text-lg">
+              <Link href="/upload">Get Started</Link>
+            </Button>
           </div>
         </div>
-      </div>
-      <Footer />
+      </section>
     </main>
   );
 }
