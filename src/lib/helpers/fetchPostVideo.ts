@@ -1,8 +1,4 @@
-import {useRouter} from "next/navigation";
-
 async function fetchPostVideo(formData:FormData){
-    const router = useRouter();
-
     const url = `http://localhost:8080/`;
 
     const response = await fetch(url + `api/videos`, {
