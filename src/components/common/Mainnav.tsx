@@ -4,6 +4,7 @@ import Link from "next/link";
 import useAuthStore from "@/stores/useAuthStore";
 import React from "react";
 import { useRouter } from "next/navigation";
+import fetchPostLogOut from "@/lib/helpers/fetchPostLogOut";
 
 function Mainnav() {
   const router = useRouter();
@@ -11,18 +12,15 @@ function Mainnav() {
 
   const onClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const url = `http://localhost:8080/`;
-    const response = await fetch(url + `api/members/logout`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", credentials: "include" },
-    });
-    if (!response.ok) {
-      alert("로그아웃에 실패했습니다.");
-      return;
+    try {
+      fetchPostLogOut();
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("알 수 없는 에러");
+      }
     }
-
-    useAuthStore.setState({ isLogIn: false });
-    router.push("/");
   };
 
   return (

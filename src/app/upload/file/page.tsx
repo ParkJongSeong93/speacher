@@ -2,25 +2,26 @@
 
 import Mainnav from "@/components/common/Mainnav";
 import Footer from "@/components/common/Footer";
+import fetchPostVideo from "@/lib/helpers/fetchPostVideo";
+import { useRouter } from "next/navigation";
 
 function Page() {
+  const router = useRouter();
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
     const formData = new FormData(currentTarget);
 
-    const url = `http://localhost:8080/`;
-
-    const response = await fetch(url + `api/videos`, {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) {
-      alert("업로드에 실패했습니다.");
-      return;
+    try {
+      fetchPostVideo(formData);
+      router.push("/");
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("알 수 없는 에러");
+      }
     }
-    alert("업로드에 성공했습니다.");
   };
 
   return (
