@@ -5,15 +5,15 @@ import useVideoListStore from "@/stores/useVideoListStore";
 
 function Sidebar() {
   useEffect(() => {
-    try {
-      fetchGetVideoList();
-    } catch (error) {
-      if (error instanceof Error) {
-        alert(error.message);
-      } else {
-        alert("알 수 없는 에러");
+    const getVideos = async () => {
+      try {
+        await fetchGetVideoList();
+        alert("비디오 불러오기 성공");
+      } catch (error) {
+        alert(error instanceof Error ? error.message : "알 수 없는 에러");
       }
-    }
+    };
+    getVideos();
   }, []);
 
   return (
