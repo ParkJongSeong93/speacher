@@ -1,9 +1,9 @@
 import useVideoListStore from "@/stores/useVideoListStore";
+import {BASE_URL} from "@/lib/constant/url";
 
 async function fetchGetVideoList(){
-    const url = `http://localhost:8080/`;
 
-    const response = await fetch(url + `api/videos`, {
+    const response = await fetch(BASE_URL + `api/videos`, {
         method: "GET",
     });
 

@@ -1,7 +1,8 @@
-async function fetchPostVideo(formData:FormData){
-    const url = `http://localhost:8080/`;
+import {BASE_URL} from "@/lib/constant/url";
 
-    const response = await fetch(url + `api/videos`, {
+async function fetchPostVideo(formData:FormData){
+
+    const response = await fetch(BASE_URL + `api/videos`, {
         method: "POST",
         body: formData,
     });

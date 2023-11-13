@@ -1,8 +1,9 @@
 import useAuthStore from "@/stores/useAuthStore";
+import {BASE_URL} from "@/lib/constant/url";
 
 async function fetchLogOut() {
-  const url = `http://localhost:8080/`;
-  const response = await fetch(url + `api/members/logout`, {
+
+const response = await fetch(BASE_URL + `api/members/logout`, {
     method: "POST",
     headers: { "Content-Type": "application/json", credentials: "include" },
   });

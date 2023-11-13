@@ -1,9 +1,9 @@
 import { UserInfo } from "../../types/userInfo";
 import useAuthStore from "@/stores/useAuthStore";
+import {BASE_URL} from "@/lib/constant/url";
 async function fetchPostLogIn(userInfo: UserInfo) {
 
-  const url = `http://localhost:8080/`;
-  const response = await fetch(url + `api/members/login`, {
+  const response = await fetch(BASE_URL + `api/members/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json", credentials: "include" },
     body: JSON.stringify(userInfo),

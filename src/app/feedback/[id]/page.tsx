@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import { BASE_URL } from "@/lib/constant/url";
 
 type Props = {
   params: {
@@ -20,8 +21,7 @@ function Page({ params }: Props) {
 
   useEffect(() => {
     const getFeedback = async () => {
-      const url = `http://localhost:8080/`;
-      const response = await fetch(url + `api/feedbacks/${params.id}`);
+      const response = await fetch(BASE_URL + `api/feedbacks/${params.id}`);
       const data = await response.json();
       setFeedback(data);
 
