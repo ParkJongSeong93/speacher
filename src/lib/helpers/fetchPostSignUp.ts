@@ -1,9 +1,9 @@
 import { UserInfo } from "../../types/userInfo";
+import {BASE_URL} from "@/lib/constant/url";
 
 async function fetchPostSignUp(userInfo: UserInfo) {
-  const url = `http://localhost:8080/`;
 
-  const response = await fetch(url + `api/members`, {
+  const response = await fetch(BASE_URL + `api/members`, {
     method: "POST",
     headers: { "Content-Type": "application/json", credentials: "include" },
     body: JSON.stringify(userInfo),
