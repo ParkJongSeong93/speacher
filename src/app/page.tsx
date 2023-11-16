@@ -1,11 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import MainMicrophone from "$/image/landing/mic.png";
+import vocal from "$/image/landing/vocal.png";
+import motionLeft from "$/image/landing/motionLeft.png";
+import motionRight from "$/image/landing/motionRight.png";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ThreeStep from "$/image/landing/three-step.png";
 import MainPlay from "$/image/landing/play.png";
+import useAuthStore from "@/stores/useAuthStore";
 
 export default function Home() {
+  const isLogIn = useAuthStore((state) => state.isLogIn);
+  const linkForUploadFileBtn = isLogIn ? "/upload" : "/login";
+
   return (
     <main className="w-full">
       <section className="flex w-2/3 justify-between relative items-center mx-auto h-screen">
@@ -19,7 +28,7 @@ export default function Home() {
             <p>your presentation</p>
           </div>
           <Button asChild size="lg" className="px-14 py-6 w-fit text-lg">
-            <Link href="/upload">Upload File</Link>
+            <Link href={linkForUploadFileBtn}>Upload File</Link>
           </Button>
         </div>
         <Image
@@ -37,19 +46,52 @@ export default function Home() {
             #2. KEY FEATURE
           </h1>
           <div className="text-3xl font-bold text-center leading-normal">
-            <p>텍스트 전사부터 음성,모션 피드백까지</p>
-            <p>한번에 가능한 올인원 AI 발표 피드백 서비스</p>
+            <p>From text transcription to voice to motion feedback</p>
+            <p>All-in-one AI presentation feedback service</p>
           </div>
-          <article className="flex justify-evenly w-full">
-            {Array(3)
-              .fill(0)
-              .map((_, index) => (
-                <figure className="flex flex-col items-center justify-center gap-y-6">
-                  <div className="bg-gray-300 w-72 h-72" />
-                  <div className="bg-gray-300 w-72 h-10" />
-                  <div className="bg-gray-300 w-72 h-10" />
-                </figure>
-              ))}
+          <article className="flex justify-evenly w-full mb-20">
+            <div className="flex border-2 border-mainNav-purple/50 px-4 py-8 mx-1.5">
+              <Image
+                style={{
+                  width: "30%",
+                  height: "auto",
+                }}
+                src={vocal}
+                alt="vocal image"
+              />
+              <p className="px-3">
+                Speaker's voice is converted into text to provide scripts and
+                analyze the speaker's speed to analyze how many words he said
+                per second. Based on the recognized voice, frequency of FIeller
+                words that are provided for managing meaningless in the context
+                of the conversation
+              </p>
+            </div>
+            <div className="flex border-2 border-mainNav-purple/50 px-4 py-8 mx-1.5">
+              <Image
+                style={{
+                  width: "14%",
+                  height: "auto",
+                  marginRight: "2%",
+                }}
+                src={motionLeft}
+                alt="vocal image"
+              />
+              <Image
+                  style={{
+                    width: "14%",
+                    height: "auto",
+                  }}
+                  src={motionRight}
+                  alt="vocal image"
+              />
+              <p className="px-3">
+                We analyzes the speaker's main gestures and behavior patterns to
+                detect and check the frequency of certain behaviors, such as the
+                speaker's gaze direction, arm-crossing, pointing with his hands,
+                putting his hands in his pockets, and holding his back.
+              </p>
+            </div>
           </article>
         </div>
       </section>
@@ -59,13 +101,14 @@ export default function Home() {
             #3. HOW TO USE
           </h1>
           <p className="text-3xl font-bold text-center leading-normal">
-            위의 모든 기능을 손쉬운 단 3단계의 과정으로!
+            All of the above is an easy three-step process!
           </p>
           <article className="flex justify-evenly w-full">
             <Image
               src={ThreeStep}
               style={{
                 width: "70%",
+                marginBottom: "10%",
               }}
               alt="서비스 설명"
             />
@@ -92,7 +135,7 @@ export default function Home() {
               <p>try now?</p>
             </div>
             <Button asChild size="lg" className="px-14 py-6 w-fit text-lg">
-              <Link href="/upload">Get Started</Link>
+              <Link href={linkForUploadFileBtn}>Get Started</Link>
             </Button>
           </div>
         </div>

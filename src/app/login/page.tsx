@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import fetchPostLogIn from "@/lib/helpers/fetchPostLogIn";
+import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 function Page() {
+  const router = useRouter();
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const currentTarget = e.currentTarget;
@@ -15,7 +19,8 @@ function Page() {
     };
 
     try {
-      fetchPostLogIn(userInfo);
+      await fetchPostLogIn(userInfo);
+      router.push("/upload");
     } catch (error) {
       if (error instanceof Error) {
         alert(error.message);
@@ -28,33 +33,30 @@ function Page() {
   return (
     <form
       onSubmit={onSubmit}
-      className="w-full h-screen flex flex-col justify-center items-center"
+      className="w-1/3 mx-auto h-screen gap-y-4 flex flex-col items-center justify-center"
     >
-      <p className="text-4xl font-bold mb-20">Log In</p>
-      <input
+      <h1 className="text-4xl font-bold my-8">Log In</h1>
+      <Input
         name="email"
         type="email"
-        placeholder="Type Id"
-        className="text-center text-2xl py-2 rounded-md border-2 focus:outline-black w-4/12 mb-2"
+        placeholder="Type Email"
+        className="h-16 text-center"
       />
-      <input
+      <Input
         name="password"
         type="password"
         placeholder="Type Password"
-        className="text-center text-2xl py-2 rounded-md border-2 focus:outline-black w-4/12 mb-2"
+        className="h-16 text-center"
       />
-      <button
-        type="submit"
-        className="text-center text-2xl py-2.5 rounded-md border-none focus:outline-black w-4/12 bg-logInPageBtn-gray"
-      >
-        Login
-      </button>
+      <Button type="submit" className="w-full h-16">
+        Log In
+      </Button>
       {/*추후 합치기, (loginPage, signUpPage) 이 두 개를 같은 파일에 넣을 수 있음*/}
       <div className="flex w-full justify-center mt-8">
         <p className="text-center">
           Forgot your password?
           <br />
-          Don't have account yet? | <Link href="/signup">Sign up</Link>
+          Don&apos;t have account yet? | <Link href="/signup">Sign up</Link>
         </p>
       </div>
     </form>
