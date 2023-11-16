@@ -1,7 +1,4 @@
 import { BASE_URL } from "@/lib/constant/url";
-import useCurrentVideoIdStore from "@/stores/useCurrentVideoIdStore";
-import useCurrentFeedbackStore from "@/stores/useCurrentFeedbackStore";
-import useIsAnalayzingStore from "@/stores/useIsAnalayzingStore";
 
 async function fetchPostVideoForNLP(id: string) {
   const responseForAnalyze = await fetch(
