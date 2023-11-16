@@ -1,20 +1,13 @@
 import { create } from "zustand";
 
-type logInState = {
+type isLogIn = {
   isLogIn: boolean;
+  updateIsLogIn: (state: boolean) => void;
 };
 
-type logInAction = {
-  updateIsLogIn: (isLogIn: boolean) => void;
-};
-
-const useAuthStore = create<logInState & logInAction>((set, get) => ({
+const useAuthStore = create<isLogIn>((set, get) => ({
   isLogIn: false,
-  updateIsLogIn: (isLogIn) => {
-    set({ isLogIn: isLogIn });
-    // need to consider flux pattern
-    //think about bank example
-  },
+  updateIsLogIn: (state: boolean) => set({ isLogIn: state }),
 }));
 
 export default useAuthStore;

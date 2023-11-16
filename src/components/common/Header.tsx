@@ -11,11 +11,14 @@ import { Button } from "@/components/ui/button";
 function Header() {
   const router = useRouter();
   const isLogIn = useAuthStore((state) => state.isLogIn);
+  const linkForFeedbackBtn = (isLogIn) ? "/feedback" : "/login";
 
   const onClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
       await fetchPostLogOut();
+      alert("로그아웃 성공");
+      router.push("/");
     } catch (error) {
       if (error instanceof Error) {
         alert(error.message);
@@ -33,7 +36,7 @@ function Header() {
         </Link>
         <div className="flex space-x-5 items-center">
           <Button asChild variant="ghost">
-            <Link href="/">Feedback</Link>
+            <Link href={linkForFeedbackBtn}>Feedback</Link>
           </Button>
           <Button asChild variant="ghost">
             <Link href="/">About us</Link>
@@ -45,7 +48,7 @@ function Header() {
 
           <Button asChild variant="outline" className="text-primary">
             {isLogIn ? (
-              <span>Log out</span>
+              <span onClick={onClick} className="cursor-pointer">Log out</span>
             ) : (
               <Link href="/signup">Join us</Link>
             )}
