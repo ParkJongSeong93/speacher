@@ -60,8 +60,8 @@ export default function Home() {
                 alt="vocal image"
               />
               <p className="px-3">
-                Speaker's voice is converted into text to provide scripts and
-                analyze the speaker's speed to analyze how many words he said
+                Speaker&apos;s voice is converted into text to provide scripts and
+                analyze the speaker&apos;s speed to analyze how many words he said
                 per second. Based on the recognized voice, frequency of FIeller
                 words that are provided for managing meaningless in the context
                 of the conversation
@@ -86,9 +86,9 @@ export default function Home() {
                   alt="vocal image"
               />
               <p className="px-3">
-                We analyzes the speaker's main gestures and behavior patterns to
+                We analyzes the speaker&apos;s main gestures and behavior patterns to
                 detect and check the frequency of certain behaviors, such as the
-                speaker's gaze direction, arm-crossing, pointing with his hands,
+                speaker&apos;s gaze direction, arm-crossing, pointing with his hands,
                 putting his hands in his pockets, and holding his back.
               </p>
             </div>
