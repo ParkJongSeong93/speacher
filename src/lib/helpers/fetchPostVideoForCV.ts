@@ -1,6 +1,4 @@
 import { BASE_URL } from "@/lib/constant/url";
-import useCurrentVideoIdStore from "@/stores/useCurrentVideoIdStore";
-import useCurrentFeedbackStore from "@/stores/useCurrentFeedbackStore";
 
 async function fetchPostVideoForCV(id: string) {
   const responseForAnalyze = await fetch(

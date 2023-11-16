@@ -1,8 +1,5 @@
 import { BASE_URL } from "@/lib/constant/url";
 
-import useCurrentVideoIdStore from "@/stores/useCurrentVideoIdStore";
-import useIsAnalayzingStore from "@/stores/useIsAnalayzingStore";
-
 async function fetchGetPresignedUrl(title: string) {
   const responseForPost = await fetch(
     BASE_URL + `api/videos?extension=mp4&title=${title}`,
